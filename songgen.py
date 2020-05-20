@@ -18,6 +18,9 @@ class Song:
         self.songinmilli = 0
         self.key = 'self.'
         
+        assert self.songinmilli == 0, "Nothing should print here"                #Tests that the attribute songinmilli is initialized to 0
+        assert self.key == 'self.', "Nothing should print here"                #Tests that the attribute key is initialized to 'self.'
+        
         instrument_satisfy = False
         
         while instrument_satisfy == False:
@@ -28,6 +31,8 @@ class Song:
                 print("Invalid instrument, enter 'piano' or 'sax'")
         
         self.instrument = instrument_input
+        
+        assert self.instrument in ['piano', 'sax'], "Nothing should print here"         #Tests that the users choice is 'piano' or 'sax'
         
         #MAJOR KEYS
         self.chromatic = [Song.c5, Song.c5sharp, Song.d5, Song.d5sharp, Song.e5, Song.f5, Song.f5sharp, Song.g5, Song.g5sharp, Song.a5, Song.a5sharp, Song.b5, Song.c6]
@@ -338,6 +343,10 @@ class Song:
                 print("Invalid Key")
                 
                 
+        
+        assert self.key in ['self.cmajor', 'self.dmajor', 'self.emajor', 'self.fmajor', 'self.gmajor', 'self.amajor', 'self.bmajor', 'self.csharpmajor', 'self.dsharpmajor', 'self.fsharpmajor', 'self.gsharpmajor', 'self.asharpmajor', 'self.cminor', 'self.dminor', 'self.eminor', 'self.fminor', 'self.gminor', 'self.aminor', 'self.bminor', 'self.csharpminor', 'self.dsharpminor', 'self.fsharpminor', 'self.gsharpminor', 'self.asharpminor'], "Nothing should print here"
+        #The line above tests that the chosen key is in the list of acceptable keys in the program        
+                
         self.songname = input("Give your song a name!\n")
         
         
@@ -456,6 +465,8 @@ if __name__ == "__main__":
         else:
             print("Invalid Parameter Method. Enter 'file' or 'inputs'")
             
+    assert parammethod.lower() in ['file', 'inputs'], "Nothing should print here"       #Tests to see if the users method of defining their song is correct
+            
             
     if parammethod.lower() == 'inputs':
         
@@ -469,6 +480,8 @@ if __name__ == "__main__":
             answer = input("Would you like to download your song? Enter y or n.\n")
             if answer.lower() in ['y', 'n']:
                 answersatisfy = True
+                
+        assert answer in ['y', 'n'], "Nothing should print here"                    #Tests that the user chose yes or no for downloading their song
             
         if answer.lower() == 'y':
             mysong.compile_song_inputs()
@@ -488,6 +501,8 @@ if __name__ == "__main__":
             answer = input("Would you like to download your song? Enter y or n.\n")
             if answer.lower() in ['y', 'n']:
                 answersatisfy = True
+                
+        assert answer in ['y', 'n'], "Nothing should print here"                    #Tests that the user chose yes or no for downloading their song
             
         if answer.lower() == 'y':
             mysong.compile_song_file()
